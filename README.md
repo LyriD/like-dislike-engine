@@ -27,9 +27,13 @@ Likeable will allow your models to be liked by users, just drop a few lines of c
 
     comment = Comment.find(15)
     comment.like_count                  # => 0
-    current_user.like!(comment)         # => #<Likeable::Like ... >
+    current_user.clike!(comment)         # => #<Likeable::Like ... >
+    current_user.cdislike!(comment)         # => #<Likeable::Like ... >
     comment.like_count                  # => 1
+    comment.dislike_count                  # => 1
     comment.likes                       # => [#<Likeable::Like ... >]
+    comment.dislikes                       # => [#<Likeable::Like ... >]
+
     comment.likes.last.user             # => #<User ... >
     comment.likes.last.created_at       # => Wed Jul 27 19:34:32 -0500 2011
 
